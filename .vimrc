@@ -5,10 +5,25 @@ syntax on
 set autoindent
 set smartindent
 
-" \347\212\266\346\200\201\346\240\217
-set laststatus=2      " \346\200\273\346\230\257\346\230\276\347\244\272\347\212\266\346\200\201\346\240\217
+" 状态栏格式定义
+set laststatus=2
+
+" 空格键向上滚屏 光标不变
+nnoremap <SPACE> 2<C-e>
+noremap <C-j> 3<C-e>
+noremap <C-k> 3<C-y>
+
+imap jk <ESC>
+
+" 自动缩进
+set cindent
+set nocompatible
+set bs=2
+
+" 换行不注释
+set paste
+
 highlight StatusLine cterm=bold ctermfg=yellow ctermbg=blue
-" \350\216\267\345\217\226\345\275\223\345\211\215\350\267\257\345\276\204\357\274\214\345\260\206$HOME\350\275\254\345\214\226\344\270\272~
 function! CurDir()
     let curdir = substitute(getcwd(), $HOME, "~", "g")
     return curdir
@@ -18,7 +33,6 @@ set statusline+=\%p%%\             "??????/??? (???) IU
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set tags=./tags,./TAGS,tags,TAGS,./../tags,./../../tags,./../../../tags,./../../../../tags,./../../../../../tags,./../../../../../../tags,./../../../../../../../tags,./../../../../../../../../tags,./../../../../../../../../../tags,./../../../../../../../../../../tags,./../../../../../../../../../../../tags
-
 
 
 
